@@ -18,16 +18,23 @@ namespace LeaveManagement_Backend.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IleaveBalanceService _leaveBalanceService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IleaveBalanceService leaveBalanceService)
         {
             _userService = userService;
+            _leaveBalanceService = leaveBalanceService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(ApplicationUserDTO request)
         {
             var result = await _userService.RegisterAsync(request, request.Password, request.RoleNames);
+            var user = new LeaveBalanceDTO
+            {
+               UserId = result.Id,
+            };
+            await _leaveBalanceService.AddItemAsync(user.UserId); // Create default leave balances
             return Ok(result);
         }
 
@@ -60,6 +67,20 @@ namespace LeaveManagement_Backend.Controllers
 
             // Authentication failed
             return Unauthorized();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUser()
+        {
+            var data = await _userService.GetAllAsync();
+            return Ok(data);
+        }
+
+        [HttpGet("id")]
+        public async Task<IActionResult> GetByUserId(string id)
+        {
+            var data = await _userService.GetById(id);
+            return Ok(data);
         }
     }
 }

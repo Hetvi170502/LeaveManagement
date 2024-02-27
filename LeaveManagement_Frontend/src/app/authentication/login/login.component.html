@@ -1,0 +1,45 @@
+<div style="margin-top: 3%;" >
+  <div class="container col-xl-20 mt-2 p-5">
+    <div class="row">
+      <!-- Left side: Image -->
+      <div class="col-xl-7">
+        <img src="https://coincent.ai/images/login.png" alt="Your Image" class="img-fluid custom-image" style="margin-bottom: 20px;">
+      </div>
+      <!-- Right side: Login Form -->
+      <div class="col-xl-4 d-flex align-items-center" style="margin-left: 100px;">
+        <div class="login-form">
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group mt-3 h6">
+              <label>Email</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-envelope m-1"></i></span>
+                </div>
+                <input type="email" class="form-control" formControlName="email" placeholder="example@user.com">
+              </div>
+              <span style="color: red;" *ngIf="email && email.touched && email.invalid">
+                  <div *ngIf="email.hasError('required')">Email is required</div>
+                <div *ngIf="email.hasError('pattern')">Invalid email format</div>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-eye-slash m-1"></i></span>
+                </div>
+              <input class="form-control" type="password" id="password" formControlName="password" placeholder="Abcd@123" required>
+            </div>
+            <span style="color: red;" *ngIf="password && password.touched && password.invalid">
+              <div *ngIf="password.hasError('required')">Password is required</div>
+            <div *ngIf="password.hasError('pattern')">Invalid Password format</div>
+          </span>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" style="margin-top: 10px;">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

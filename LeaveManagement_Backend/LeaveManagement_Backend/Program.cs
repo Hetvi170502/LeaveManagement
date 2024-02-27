@@ -47,8 +47,13 @@ builder.Services.AddDbContext<LeaveManagementDataContext>(
         options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     });
 
+builder.Services.AddScoped(typeof(IgenericRepository<>), typeof(genericRepository<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IleaveBalanceService, LeaveBalanceService>();
+builder.Services.AddScoped<IleaveRepository, LeaveRepository>();
+builder.Services.AddScoped<IleaveService, LeaveService>();
+
 
 
 builder.Services.AddAuthentication(options =>

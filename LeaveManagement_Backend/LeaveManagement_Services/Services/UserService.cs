@@ -15,11 +15,23 @@ namespace LeaveManagement_Services.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IgenericRepository<ApplicationUser> _user;
 
-        public UserService(IUserRepository userRepository, RoleManager<IdentityRole> roleManager)
+        public UserService(IUserRepository userRepository, RoleManager<IdentityRole> roleManager, IgenericRepository<ApplicationUser> user)
         {
             _userRepository = userRepository;
             _roleManager = roleManager;
+            _user = user;
+        }
+
+        public async Task<IEnumerable<ApplicationUser>> GetAllAsync()
+        {
+            return await _user.GetAll();
+        }
+
+        public async Task<ApplicationUser> GetById(string id)
+        {
+            return await _userRepository.GetById(id);
         }
 
         public async Task<ApplicationUserDTO> LoginAsync(string email, string password)

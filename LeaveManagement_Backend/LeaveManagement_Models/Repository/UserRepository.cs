@@ -23,6 +23,15 @@ namespace LeaveManagement_Models.Repository
             _roleManager = roleManager;
         }
 
+        public async Task<ApplicationUser> GetById(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+                return null;
+            else
+                return user;
+        }
+
         public async Task<ApplicationUserDTO> LoginAsync(string email, string password)
         {
             var result = await _signInManager.PasswordSignInAsync(email, password, isPersistent: false, lockoutOnFailure: false);
@@ -88,5 +97,7 @@ namespace LeaveManagement_Models.Repository
 
             return userDTO;
         }
+
+        
     }
 }

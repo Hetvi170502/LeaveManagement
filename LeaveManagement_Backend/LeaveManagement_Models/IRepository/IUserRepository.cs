@@ -13,5 +13,7 @@ namespace LeaveManagement_Models.IRepository
     {
         Task<ApplicationUserDTO> RegisterAsync(ApplicationUser obUser, string password, string role);
         Task<ApplicationUserDTO> LoginAsync(string email, string password);
+
+        Task<ApplicationUser> GetById(string id);
     }
 }

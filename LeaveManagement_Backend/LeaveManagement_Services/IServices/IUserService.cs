@@ -13,5 +13,9 @@ namespace LeaveManagement_Services.IServices
     {
         Task<ApplicationUserDTO> RegisterAsync(ApplicationUserDTO obUser, string password, string role);
         Task<ApplicationUserDTO> LoginAsync(string email, string password);
+
+        Task<IEnumerable<ApplicationUser>> GetAllAsync();
+
+        Task<ApplicationUser> GetById(string id);
     }
 }
