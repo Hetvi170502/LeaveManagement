@@ -1,0 +1,17 @@
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\bin\Debug\net6.0\LeaveManagement_Services.deps.json
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\bin\Debug\net6.0\LeaveManagement_Services.runtimeconfig.json
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\bin\Debug\net6.0\LeaveManagement_Services.dll
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\bin\Debug\net6.0\LeaveManagement_Services.pdb
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.csproj.AssemblyReference.cache
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.AssemblyInfoInputs.cache
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.AssemblyInfo.cs
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.csproj.CoreCompileInputs.cache
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.dll
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\refint\LeaveManagement_Services.dll
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.pdb
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.genruntimeconfig.cache
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\ref\LeaveManagement_Services.dll
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\bin\Debug\net6.0\LeaveManagement_Models.dll
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\bin\Debug\net6.0\LeaveManagement_Models.pdb
+E:\Hetvi\LeaveManagementSystem\LeaveManagement_Backend\LeaveManagement_Services\obj\Debug\net6.0\LeaveManagement_Services.csproj.CopyComplete
