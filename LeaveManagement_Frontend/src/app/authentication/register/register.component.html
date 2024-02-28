@@ -1,1 +1,129 @@
-<p>register works!</p>
+<!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">firstName</label>
+    <input type="text" id="firstName" formControlName="firstName">
+  </div>
+  <div>
+    <label for="lastName">lastName</label>
+    <input type="text" id="lastName" formControlName="lastName">
+  </div>
+  <div>
+    <label for="email">email</label>
+    <input type="text" id="email" formControlName="email">
+  </div>
+  <div>
+    <label for="phoneNumber">phoneNumber</label>
+    <input type="text" id="phoneNumber" formControlName="phoneNumber">
+  </div>
+  <div>
+    <label for="department">department</label>
+    <input type="text" id="department" formControlName="department">
+  </div>
+  <div>
+    <label for="designation">designation</label>
+    <input type="text" id="designation" formControlName="designation">
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+  </div>
+  !-- Add roleNames input if needed --
+  <div>
+    <label for="roleNames">Roles</label>
+    <input type="text" id="roleNames" formControlName="roleNames">
+  </div>
+  <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+</form>-->
+
+<div style="margin-top: 5%;" >
+  <div class="container col-xl-20 mt-5 p-3">
+    <div class="row">
+      <!-- Left side: Image -->
+      <div class="col-xl-7">
+        <img src="https://static.vecteezy.com/system/resources/previews/023/588/162/non_2x/register-new-user-account-registration-form-or-submission-sign-up-information-online-apply-new-job-or-membership-self-service-concept-businesswoman-with-pencil-complete-online-registration-form-vector.jpg" alt="Your Image" class="img-fluid custom-image">
+      </div>
+      <!-- Right side: Login Form -->
+      <div class="col-xl-4 d-flex align-items-center" style="margin-left: 50px;">
+        <div class="login-form">
+
+          <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+
+            <div class="form-group mt-3 h6">
+              <label>firstName</label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="John">
+              <span style="color: red;" *ngIf="firstName && firstName.touched">
+                  <div *ngIf="firstName.hasError('required')">Email is required</div>
+              </span>
+            </div>
+
+            <div class="form-group mt-3 h6">
+              <label>lastName</label>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Robbins">
+              <span style="color: red;" *ngIf="lastName && lastName.touched">
+                  <div *ngIf="lastName.hasError('required')">Email is required</div>
+              </span>
+            </div>
+
+            <div class="form-group mt-3 h6">
+              <label>phoneNumber</label>
+                <input type="text" class="form-control" formControlName="phoneNumber" placeholder="1234567890">
+              <span style="color: red;" *ngIf="phoneNumber && phoneNumber.touched ">
+                  <div *ngIf="phoneNumber.hasError('required')">Email is required</div>
+              </span>
+            </div>
+
+            <div class="form-group mt-3 h6">
+              <label>Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="example@user.com">
+              <span style="color: red;" *ngIf="email && email.touched && email.invalid">
+                  <div *ngIf="email.hasError('required')">Email is required</div>
+                <div *ngIf="email.hasError('pattern')">Invalid email format</div>
+              </span>
+            </div>
+
+            <div class="form-group mt-3 h6">
+              <label>department</label>
+                <input type="text" class="form-control" formControlName="department" placeholder="Developer">
+              <span style="color: red;" *ngIf="department && department.touched">
+                  <div *ngIf="department.hasError('required')">Email is required</div>
+              </span>
+            </div>
+
+            <div class="form-group mt-3 h6">
+              <label>designation</label>
+                <input type="text" class="form-control" formControlName="designation" placeholder="Intern">
+              <span style="color: red;" *ngIf="designation && designation.touched ">
+                  <div *ngIf="designation.hasError('required')">Email is required</div>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" id="password" formControlName="password" placeholder="Abcd@123" required>
+            <span style="color: red;" *ngIf="password && password.touched && password.invalid">
+              <div *ngIf="password.hasError('required')">Password is required</div>
+            <div *ngIf="password.hasError('pattern')">Invalid Password format</div>
+          </span>
+            </div>
+
+            <div class="form-group mt-3 h6">
+              <label>Roles</label>
+              <select class="form-control" formControlName="roleNames">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Employe">Employe</option>
+                <option value="Manager">Manager</option>
+              </select>
+              <span style="color: red;" *ngIf="roleNames && roleNames.touched">
+                <div *ngIf="roleNames.hasError('required')">Role selection is required</div>
+              </span>
+            </div>
+            <div class="form-group mt-3 h6">
+              <span>Already have an account? </span>
+              <a class="text-primary ms-2" routerLink="auth/login">Login here</a>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" style="margin-top: 10px;">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

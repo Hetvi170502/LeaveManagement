@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit
         (response) => {
 
           localStorage.setItem('currentUser', JSON.stringify(response.user.id));
-
+          localStorage.setItem('email', JSON.stringify(response.user.email));
           if (response.user.roleNames == 'Manager')
           {
               this.router.navigate(['manager/leave-list'])

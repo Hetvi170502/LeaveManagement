@@ -1,7 +1,9 @@
 ﻿using LeaveManagement_Models.DTO;
+using LeaveManagement_Models.Models;
 using LeaveManagement_Services.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 
 namespace LeaveManagement_Backend.Controllers
 {
@@ -14,6 +16,13 @@ namespace LeaveManagement_Backend.Controllers
         public LeaveController(IleaveService leaveService)
         {
             _leaveService = leaveService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllLeave()
+        {
+            var data = await _leaveService.GetAllLeaves();
+            return Ok(data);
         }
 
         [HttpPost]
@@ -49,12 +58,44 @@ namespace LeaveManagement_Backend.Controllers
             {
                 var updateResult = await _leaveService.UpdateLeave(leaveDTO);
 
-                return Ok("Leave status updated successfully.");
+                return Ok();
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet("CSV")]
+        public async Task<IActionResult> DownloadAllLeave()
+        {
+            var data = await _leaveService.GetAllLeaves();
+
+            // Convert data to CSV format
+            var csvData = ToCsv(data);
+
+            // Prepare response
+            var fileName = "all_leaves.csv"; // or any other suitable filename
+            var contentType = "text/csv";
+
+            // Return file as a downloadable attachment
+            return File(new System.Text.UTF8Encoding().GetBytes(csvData), contentType, fileName);
+        }
+
+        private string ToCsv(IEnumerable<Leave> leaves)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("Employee Name,Start Date,End Date,Reason,Leave Type,Date Of Request"); // Add headers
+
+            foreach (var leave in leaves)
+            {
+                var startDate = leave.StartDate.ToString("yyyy-MM-dd");
+                var endDate = leave.EndDate.ToString("yyyy-MM-dd");
+                var employeeName = $"{leave.User.FirstName} {leave.User.LastName}";
+                sb.AppendLine($"{employeeName},{startDate},{endDate},{leave.ReasonForLeave},{leave.LeaveType.Type},{leave.DateOfRequest}");
+            }
+
+            return sb.ToString();
         }
     }
 }

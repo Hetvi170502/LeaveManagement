@@ -12,7 +12,9 @@ export interface leave
   reasonForLeave : string,
   status : string
   user:register,
-  leaveType : leaveType
+  leaveType : {
+    type:string
+  }
 }
 
 

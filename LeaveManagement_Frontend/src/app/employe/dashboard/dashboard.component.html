@@ -1,0 +1,13 @@
+<nav class="navbar navbar-dark bg-dark border-bottom border-body" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-2 me-auto" href="#">LeaveManagement</a>
+    <ng-container *ngIf="!isLoggedIn(); else loggedIn">
+      <a class="nav-link" href="#" routerLink="auth/login">Login</a>
+    </ng-container>
+    <ng-template #loggedIn>
+      <span class="navbar-text text-white me-5">{{ retrieveemailFromLocalStorage() }}</span>
+      <button class="btn btn-link text-white me-5" (click)="logout()">Logout</button>
+    </ng-template>
+  </div>
+</nav>
+<router-outlet></router-outlet>

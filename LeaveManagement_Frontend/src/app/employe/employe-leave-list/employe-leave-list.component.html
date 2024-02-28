@@ -1,10 +1,11 @@
 
 
-<div class="col-md-8 mt-5" *ngIf="leaves && leaves.length" style="margin-top: 1%; margin-left: 17%;">
+<button class="btn btn-outline-primary mt-5 ms-5"(click)="applyLeave()"><i class="fa fa-plus me-2 ms-2" aria-hidden="true"></i>Apply Leave</button>
+<div class="col-md-10 mt-5 ms-5" *ngIf="leaves && leaves.length" style="margin-top: 1%;">
   <table class="table table-light table-hover"  >
-  <thead>
+  <thead class="table-primary">
     <tr style="font-family:initial; font-size: 17px;">
-      <th scope="col">User</th>
+
       <th scope="col">Leave Type</th>
       <th scope="col">FromDate</th>
       <th scope="col">ToDate</th>
@@ -17,7 +18,7 @@
   </thead>
   <tbody *ngFor="let leave of leaves">
     <tr style="font-family:inherit; font-size: 15px;">
-      <td>{{leave.user.firstName}}</td>
+
       <td>{{leave.leaveType.type}}</td>
       <td>{{leave.startDate | date: 'MMMM d, y'}}</td>
       <td>{{leave.endDate | date: 'MMMM d, y'}}</td>
@@ -25,7 +26,7 @@
       <td>{{leave.dateOfRequest | date:'MMMM d, y'}}</td>
       <td>{{leave.status}}</td>
 
-      <td><button class="btn btn-danger">Cancel</button></td>
+      <td><button class="btn btn-outline-danger" [disabled]="leave.status === 'Cancel' || leave.status === 'Reject' " (click)="leaveCancel(leave)">Cancel</button></td>
     </tr>
   </tbody>
 </table>

@@ -8,6 +8,7 @@ import { NgToastModule } from 'ng-angular-popup';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from  '@angular/common/http'
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { HttpClientModule } from  '@angular/common/http'
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

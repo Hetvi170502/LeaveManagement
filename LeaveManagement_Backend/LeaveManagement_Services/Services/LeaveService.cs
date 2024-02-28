@@ -58,9 +58,9 @@ namespace LeaveManagement_Services.Services
             }
         }
        
-        public Task<IEnumerable<Leave>> GetAllLeaves()
+        public async Task<IEnumerable<Leave>> GetAllLeaves()
         {
-            throw new NotImplementedException();
+            return await _leave.GetAll( u => u.User, u => u.LeaveType);
         }
 
         public async Task<IEnumerable<Leave>> GetLeaveUserId(string id)
@@ -75,7 +75,7 @@ namespace LeaveManagement_Services.Services
             {
                 //var originalStatus = empId.Status;                
                 var daysUntilLeaveStart = (empId.StartDate.Date - DateTime.Today).Days;
-                if (leave.Status.ToLower() == "approved")
+                if (leave.Status == "Approved")
                 {
                     var leaveDuration = (empId.EndDate- empId.StartDate).Days + 1;
                     var leaveType = await _leaveRepository.LeaveBalance(empId.UserId,empId.LeaveTypeId);
@@ -86,7 +86,7 @@ namespace LeaveManagement_Services.Services
                         {
                             leaveType.Balance = updateBalance;
                             await _leaveBalance.UpdateItem(leaveType);
-                            return true;
+                           
                         }
                         else
                         {
@@ -100,7 +100,7 @@ namespace LeaveManagement_Services.Services
                         throw new Exception("Leave type not found.");
                     }
                 }
-                else if (leave.Status.ToLower() == "cancel" && empId.Status.ToLower() == "approved")
+                else if (leave.Status.ToLower() == "Cancel" && empId.Status.ToLower() == "Approved")
                 {
                     if (daysUntilLeaveStart <= 3)
                     {
@@ -120,7 +120,7 @@ namespace LeaveManagement_Services.Services
                    
                 }
                
-                else if (leave.Status.ToLower() == "cancel")
+                else if (leave.Status.ToLower() == "Cancel")
                 {
                     // Return true indicating leave was updated successfully
                     if (daysUntilLeaveStart <= 3)
@@ -129,15 +129,14 @@ namespace LeaveManagement_Services.Services
                     }
                     return true;
                 }
-                else
-                {
-                    return true;
-                }
+               
+
                 empId.Status = leave.Status;
                 await _leave.UpdateItem(empId);
                 return true;
-            }            
-                
+
+            }
+           
             throw new Exception("Leave not found.");
 
         }
