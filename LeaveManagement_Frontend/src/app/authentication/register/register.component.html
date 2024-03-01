@@ -107,7 +107,7 @@
 
             <div class="form-group mt-3 h6">
               <label>Roles</label>
-              <select class="form-control" formControlName="roleNames">
+              <select class="form-control form-select" formControlName="roleNames">
                 <option value="" disabled selected>Select Role</option>
                 <option value="Employe">Employe</option>
                 <option value="Manager">Manager</option>
@@ -116,6 +116,7 @@
                 <div *ngIf="roleNames.hasError('required')">Role selection is required</div>
               </span>
             </div>
+
             <div class="form-group mt-3 h6">
               <span>Already have an account? </span>
               <a class="text-primary ms-2" routerLink="auth/login">Login here</a>

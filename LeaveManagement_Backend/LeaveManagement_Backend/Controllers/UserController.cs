@@ -52,7 +52,10 @@ namespace LeaveManagement_Backend.Controllers
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                new Claim(ClaimTypes.Name, user.Email) // You can include more claims here if needed
+                        new Claim(ClaimTypes.Name, user.Email ), // You can include more claims here if needed
+                        new Claim(ClaimTypes.Role, user.RoleNames) ,// You can include more claims here if needed,
+                        new Claim(ClaimTypes.PrimarySid, user.Id) // You can include more claims here if needed
+
                     }),
                     Expires = DateTime.UtcNow.AddDays(1), // Token expiration time
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

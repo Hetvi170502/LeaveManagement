@@ -32,7 +32,7 @@ namespace LeaveManagement_Models.DataContext
                 Id = "e05fc12c-e4b1-4a7d-9180-d60e2781fdcd",
                 Name = "Employe",
                 NormalizedName = "Employe"
-            });       
+            });
         }
 
         public DbSet<Leave> Leaves { get; set; }

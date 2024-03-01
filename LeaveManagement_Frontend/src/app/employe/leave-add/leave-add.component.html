@@ -9,9 +9,9 @@
       <option value="2">Sick leave</option>
       <option value="3">Paid leave</option>
     </select>
-    <!-- <span style="color: red;" *ngIf="leaveTypeId && leaveTypeId.touched">
-      <div *ngIf="leaveTypeId.hasError('required')">Role selection is required</div>
-    </span> -->
+    <span style="color: red;" *ngIf="leaveTypeId && leaveTypeId.touched">
+      <div *ngIf="leaveTypeId.hasError('required')">Leave Type is required</div>
+    </span>
   </div>
 
   <div class="form-group mt-3 h6">
@@ -38,7 +38,7 @@
     </span>
   </div>
   <div>
-  <button type="button" class="btn btn-primary" [disabled]="applyLeaveForm.invalid" (click)="applyLeave()">Apply leave</button>
+  <button type="button" class="btn btn-primary me-2" [disabled]="applyLeaveForm.invalid" (click)="applyLeave()">Apply leave</button>
   <button class="btn btn-danger buttons" mat-dialog-close (click)="close()">
     Close
     <i class="fa fa-times"></i>

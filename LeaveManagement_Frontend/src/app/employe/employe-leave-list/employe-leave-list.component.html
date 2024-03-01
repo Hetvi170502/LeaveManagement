@@ -26,7 +26,7 @@
       <td>{{leave.dateOfRequest | date:'MMMM d, y'}}</td>
       <td>{{leave.status}}</td>
 
-      <td><button class="btn btn-outline-danger" [disabled]="leave.status === 'Cancel' || leave.status === 'Reject' " (click)="leaveCancel(leave)">Cancel</button></td>
+      <td><button class="btn btn-outline-danger" [disabled]="isLeaveDatePast(leave.startDate) || leave.status === 'Cancel' || leave.status === 'Reject' " (click)="leaveCancel(leave)">Cancel</button></td>
     </tr>
   </tbody>
 </table>

@@ -17,7 +17,7 @@ export class LeaveAddComponent implements OnInit
   get startDate() {return this.applyLeaveForm.get('startDate')}
   get endDate() {return this.applyLeaveForm.get('endDate')}
   get reasonForLeave() {return this.applyLeaveForm.get('reasonForLeave')}
-  // get leaveTypeId() {return this.applyLeaveForm.get('leaveTypeId')}
+  get leaveTypeId() {return this.applyLeaveForm.get('leaveTypeId')}
 
 
   constructor(private employe : EmployeService , private formBuilder : FormBuilder , private router : Router ,

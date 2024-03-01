@@ -55,7 +55,7 @@ export class EmployeLeaveListComponent implements OnInit
     .subscribe(
       response => {
         console.log('Leave status updated successfully:', response);
-        this.toster.success({detail:'success',summary:response.message,duration:3000});
+        this.toster.success({detail:'success',summary:"leave Cancel",duration:3000});
         this.empLeave()
       },
       error => {
@@ -110,6 +110,7 @@ export class EmployeLeaveListComponent implements OnInit
             status:'InProgress'
           }).subscribe({
             next : () => {
+              this.toster.success({detail:'success',summary:"Leave Apply!!",duration:3000});
               this.empLeave();
             },
           });
@@ -118,4 +119,9 @@ export class EmployeLeaveListComponent implements OnInit
     });
   }
 
+  isLeaveDatePast(startDate: Date): boolean {
+    const today = new Date();
+    startDate = new Date(startDate);
+    return startDate < today;
+  }
 }

@@ -49,7 +49,7 @@ export class LeaveListComponent implements OnInit
     .subscribe(
       response => {
         console.log('Leave status updated successfully:', response);
-        this.toster.success({detail:'success',summary:'Updated Successfully!!',duration:3000});
+        this.toster.success({detail:'success',summary:'Leave Approve!',duration:3000});
         this.getList()
       },
       error => {
@@ -67,7 +67,7 @@ export class LeaveListComponent implements OnInit
     .subscribe(
       response => {
         console.log('Leave status updated successfully:', response);
-        this.toster.success({detail:'success',summary:response,duration:3000});
+        this.toster.success({detail:'success',summary:'Leave Reject!',duration:3000});
         this.getList()
       },
       error => {
